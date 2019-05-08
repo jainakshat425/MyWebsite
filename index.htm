@@ -9,35 +9,38 @@
 </head>
 <body>
     <header>
-        <h1>My Website</h1>
-        <p>Something about my website</p>
+        <div>
+            <h1>My Website</h1>
+            <p>Something about my website</p>
+        </div>
+        <img id="menu" src="img/menu.svg" alt="Menu">
     </header>
 	<nav>
-        <ul>
+        <ul class="left-nav">
             <li><a href="#" class="active">Home</a></li>
             <li><a href="#">Quiz</a></li>
             <li><a href="#">Challenges</a></li>
             <li><a href="#">Resources</a></li>
             <li class="acc-dropdown">
-                <a href="javascript:void(0)">Account</a>
+                <a href="javascript:void(0)">Account <i class="fas fa-caret-down"></i>
+                <i class="fas fa-caret-up"></i></a>
                 <div class="acc-drop-content">
                     <a href="#">Profile</a>
                     <a href="#">Logout</a>
                 </div>
             </li>
             <li><a href="#">About</a></li>
-            <span>
-                <div class="search-box">
+        </ul>
+        <ul class="right-nav">  
+            <li id="register"><a href="javascript:void(0)">Register</a></li>
+            <li id="login"><a href="javascript:void(0)">Login</a></li>
+        </ul> 
+        <div class="search-box">
                 <input type="text" name="search" class="search-txt" placeholder="Type to search">
                 <a href="#" class="search-btn">
                     <i class="fas fa-search"></i>
                 </a>
-                </div>
-                <li id="register"><a>Register</a></li>
-                <li id="login"><a>Login</a></li>
-            </span>
-            
-        </ul>
+        </div> 
     </nav>
     <div id="forms-container">
         <form id="login-form" action="login" method="post">
@@ -62,6 +65,30 @@
     </div>
     <script>
 	$(document).ready(function() {
+        $("#menu").click(function() {     
+            if($('nav:visible').length) {
+                $('nav').hide();
+                this.style.background = "#fff";
+            }
+            else {
+                $('nav').show();  
+                this.style.background = "#eee";
+            }
+        });
+        $(".acc-dropdown").click(function() {     
+            if($('.acc-drop-content:visible').length) {
+                $('.acc-drop-content').hide();
+                this.style.background = "#666";
+                $('.fa-caret-up').hide();
+                $('.fa-caret-down').show();
+            }
+            else {
+               $('.acc-drop-content').show();
+                this.style.background = "#000";
+                $('.fa-caret-up').show();
+                $('.fa-caret-down').hide();
+            }
+        });
 		$("#login").click(function() {
 			$("#login-form").show();
 			$("#register-form").hide();
