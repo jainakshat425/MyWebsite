@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang=en-US>
+<head>
+<title>Welcome</title>
+<link rel="stylesheet" href="css/styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>My Website</h1>
+        <p>Something about my website</p>
+    </header>
+	<nav>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Quiz</a></li>
+            <li><a href="#">Challenges</a></li>
+            <li><a href="#">Resources</a></li>
+            <li class="acc-dropdown">
+                <a href="javascript:void(0)">Account</a>
+                <div class="acc-drop-content">
+                    <a href="#">Profile</a>
+                    <a href="#">Logout</a>
+                </div>
+            </li>
+            <li><a href="#">About</a></li>
+            <span>
+                <div class="search-box">
+                <input type="text" name="search" class="search-txt" placeholder="Type to search">
+                <a href="#" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </a>
+                </div>
+                <li id="register"><a>Register</a></li>
+                <li id="login"><a>Login</a></li>
+            </span>
+            
+        </ul>
+    </nav>
+    <div id="forms-container">
+        <form id="login-form" action="login" method="post">
+            <h2>Welcome again!</h2>
+           
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="password" name="pass" placeholder="Password" required autocomplete="off">
+            <input type="submit" value="Login">
+            
+        </form>
+        <form id="register-form" action="register" method="post">
+            <h2>Welcome</h2>
+            
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="pass" placeholder="Password" required autocomplete="off">
+            <input type="Password" name="cpass" placeholder="Confirm password" required autocomplete="off">
+            <input type="checkbox" id="agree-check" name="agree" required>
+            <label for="agree-check">I agree to <a href="#">terms and conditions.</a></label>
+            <input type="submit" value="Register">         
+        </form>
+    </div>
+    <script>
+	$(document).ready(function() {
+		$("#login").click(function() {
+			$("#login-form").show();
+			$("#register-form").hide();
+		});
+		$("#register").click(function() {
+			$("#login-form").hide();
+			$("#register-form").show();
+		});
+	});
+    </script>
+</body>
+</html>
